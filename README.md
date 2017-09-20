@@ -416,6 +416,7 @@ List of videos uploaded by this user.
 | localization     | String    | This will affect results language and content selection. Note that changing the localization won't give access to geoblocked content of the corresponding location. The IP address of the API consumer is always used for this kind of restriction. You can use a standard locale like `fr_FR`, `en_US` (or simply `en`, `it`) but you can also provide `detect` to tell the API to detect the most probable locale based on the consumer's location.
 | sslAssets        | Select    | **Get secured HTTPS URLs for all assets** (URLs, images, videos, etc.). By default, this option is turned **off**.
 | thumbnailRatio   | Select    | **Change the size ratio for all video thumbnails.** By default, this option is set to `original`. Accepted values are `original`, `widescreen` and `square`.
+| userId        | String| Unique object identifier (unique among all users, default me)
 | fields           | List      | List of fields to return
 | channel          | String    | Limit the result set to this channel.
 | availability     | Select    | Limit the result set to available videos.

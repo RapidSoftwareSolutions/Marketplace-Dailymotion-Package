@@ -10000,6 +10000,12 @@
                         "name": "thumbnail_ratio"
                     }
                 },
+              {
+                "name": "userId",
+                "type": "String",
+                "info": "Unique object identifier (unique among all users, default me)",
+                "required": false
+              },
                 {
                     "name": "fields",
                     "type": "List",
