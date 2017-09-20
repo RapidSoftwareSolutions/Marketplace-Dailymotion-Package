@@ -865,6 +865,7 @@ Retrieve a channel with its identifier
 | Field      | Type  | Description
 |------------|-------|----------
 | accessToken| String| Access token token
+| channelId     | String    | Id of the channel
 | fields     | List  | List of fields to return
 | page       | Number| The page number to load
 | limit      | Number| Maximum number of items to return
@@ -876,6 +877,7 @@ List of the top users of this channel.
 | Field      | Type  | Description
 |------------|-------|----------
 | accessToken| String| Access token token
+| channelId     | String    | Id of the channel
 | fields     | List  | List of fields to return
 | page       | Number| The page number to load
 | limit      | Number| Maximum number of items to return

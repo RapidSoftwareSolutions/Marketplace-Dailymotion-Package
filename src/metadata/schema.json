@@ -22980,6 +22980,12 @@
                     "info": "Access token token",
                     "required": true
                 },
+              {
+                "name": "channelId",
+                "type": "String",
+                "info": "Id of the channel",
+                "required": false
+              },
                 {
                     "name": "fields",
                     "type": "List",
@@ -23065,6 +23071,12 @@
                     "info": "Access token token",
                     "required": true
                 },
+              {
+                "name": "channelId",
+                "type": "String",
+                "info": "Id of the channel",
+                "required": false
+              },
                 {
                     "name": "fields",
                     "type": "List",

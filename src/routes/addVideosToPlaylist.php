@@ -24,7 +24,7 @@ $app->post('/api/Dailymotion/addVideosToPlaylist', function ($request, $response
     $data['ids'] = \Models\Params::toString($data['ids'], ','); 
 
     $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
-    $query_str = "https://api.dailymotion.com/playlist/{$data['playlistId']}";
+    $query_str = "https://api.dailymotion.com/playlist/{$data['playlistId']}/videos";
 
     
 
