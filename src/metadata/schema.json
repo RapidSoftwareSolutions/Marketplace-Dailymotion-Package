@@ -12398,7 +12398,7 @@
             ],
             "vendorRequest": {
                 "url": "video\/{$data['videoId']}\/subtitles",
-                "method": "poist",
+                "method": "post",
                 "requestParameters": [
                     {
                         "type": "form_params",
