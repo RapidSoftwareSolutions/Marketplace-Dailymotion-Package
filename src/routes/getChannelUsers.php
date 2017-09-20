@@ -13,7 +13,7 @@ $app->post('/api/Dailymotion/getChannelUsers', function ($request, $response) {
     }
 
     $requiredParams = ['accessToken'=>'accessToken'];
-    $optionalParams = ['fields'=>'fields','page'=>'page','limit'=>'limit'];
+    $optionalParams = ['channelId'=> 'channelId','fields'=>'fields','page'=>'page','limit'=>'limit'];
     $bodyParams = [
        'query' => ['fields','page','limit']
     ];

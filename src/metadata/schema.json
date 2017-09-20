@@ -21578,7 +21578,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "playlist\/{$data['paylistId']}",
+                "url": "playlist\/{$data['playlistId']}",
                 "method": "post",
                 "requestParameters": [
                     {

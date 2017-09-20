@@ -6,40 +6,39 @@ $app->post('/api/Dailymotion/getSingleChannel', function ($request, $response) {
     $checkRequest = $this->validation;
     $validateRes = $checkRequest->validate($request, ['accessToken']);
 
-    if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
+    if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken'];
-    $optionalParams = ['fields'=>'fields','page'=>'page','limit'=>'limit','sort'=>'sort'];
+    $requiredParams = ['accessToken' => 'accessToken'];
+    $optionalParams = ['channelId'=> 'channelId','fields' => 'fields', 'page' => 'page', 'limit' => 'limit', 'sort' => 'sort'];
     $bodyParams = [
-       'query' => ['fields','page','limit','sort']
+        'query' => ['fields', 'page', 'limit', 'sort']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);
 
-    
-    $data['fields'] = \Models\Params::toString($data['fields'], ','); 
+    $data['fields'] = \Models\Params::toString($data['fields'], ',');
 
-    $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
+    $client = $this->httpClient;
+    $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
     $query_str = "https://api.dailymotion.com/channel/{$data['channelId']}";
 
-    
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
-    $requestParams['headers'] = ["Authorization"=>"Bearer {$data['accessToken']}"];
-     
+    $requestParams['headers'] = ["Authorization" => "Bearer {$data['accessToken']}"];
+
 
     try {
         $resp = $client->get($query_str, $requestParams);
         $responseBody = $resp->getBody()->getContents();
 
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+        if (in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
             $result['callback'] = 'success';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
-            if(empty($result['contextWrites']['to'])) {
+            if (empty($result['contextWrites']['to'])) {
                 $result['contextWrites']['to']['status_msg'] = "Api return no results";
             }
         } else {
@@ -51,7 +50,7 @@ $app->post('/api/Dailymotion/getSingleChannel', function ($request, $response) {
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
 
         $responseBody = $exception->getResponse()->getBody()->getContents();
-        if(empty(json_decode($responseBody))) {
+        if (empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
             $out = json_decode($responseBody);
@@ -63,7 +62,7 @@ $app->post('/api/Dailymotion/getSingleChannel', function ($request, $response) {
     } catch (GuzzleHttp\Exception\ServerException $exception) {
 
         $responseBody = $exception->getResponse()->getBody()->getContents();
-        if(empty(json_decode($responseBody))) {
+        if (empty(json_decode($responseBody))) {
             $out = $responseBody;
         } else {
             $out = json_decode($responseBody);

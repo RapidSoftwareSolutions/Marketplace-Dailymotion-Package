@@ -22,9 +22,10 @@ $app->post('/api/Dailymotion/updatePlaylist', function ($request, $response) {
 
     
     $data['fields'] = \Models\Params::toString($data['fields'], ','); 
-
+var_dump($data);
+exit();
     $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
-    $query_str = "https://api.dailymotion.com/playlist/{$data['paylistId']}";
+    $query_str = "https://api.dailymotion.com/playlist/{$data['playlistId']}";
 
     
 
