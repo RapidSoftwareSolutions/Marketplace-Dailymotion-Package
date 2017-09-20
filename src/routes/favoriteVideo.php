@@ -22,7 +22,7 @@ $app->post('/api/Dailymotion/favoriteVideo', function ($request, $response) {
 
     
 
-    $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
+    $client = $this->httpClient;
     $query_str = "https://api.dailymotion.com/me/favorites/{$data['videoId']}";
 
     
