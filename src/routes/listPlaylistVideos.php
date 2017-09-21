@@ -12,8 +12,8 @@ $app->post('/api/Dailymotion/listPlaylistVideos', function ($request, $response)
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken'];
-    $optionalParams = ['playlistId'=>'playlistId','context'=>'context','deviceFilter'=>'device_filter','familyFilter'=>'family_filter','localization'=>'localization','sslAssets'=>'ssl_assets','thumbnailRatio'=>'thumbnail_ratio','fields'=>'fields','sort'=>'sort','page'=>'page','limit'=>'limit','search'=>'search','tags'=>'tags'];
+    $requiredParams = ['playlistId'=>'playlistId','accessToken'=>'accessToken'];
+    $optionalParams = ['context'=>'context','deviceFilter'=>'device_filter','familyFilter'=>'family_filter','localization'=>'localization','sslAssets'=>'ssl_assets','thumbnailRatio'=>'thumbnail_ratio','fields'=>'fields','sort'=>'sort','page'=>'page','limit'=>'limit','search'=>'search','tags'=>'tags'];
     $bodyParams = [
        'query' => ['search','context','device_filter','family_filter','localization','ssl_assets','thumbnail_ratio','limit','page','fields','sort','tags']
     ];

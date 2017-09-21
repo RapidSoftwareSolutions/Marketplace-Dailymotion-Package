@@ -204,7 +204,6 @@ List of videos related to this video.
 | sslAssets     | Select| **Get secured HTTPS URLs for all assets** (URLs, images, videos, etc.). By default, this option is turned **off**.
 | thumbnailRatio| Select| **Change the size ratio for all video thumbnails.** By default, this option is set to `original`. Accepted values are `original`, `widescreen` and `square`.
 | fields        | List  | List of fields to return
-| sort          | Select| Change the default result set ordering.
 | page          | Number| The page number to load
 | limit         | Number| Maximum number of items to return
 
@@ -867,9 +866,6 @@ Retrieve a channel with its identifier
 | accessToken| String| Access token token
 | channelId     | String    | Id of the channel
 | fields     | List  | List of fields to return
-| page       | Number| The page number to load
-| limit      | Number| Maximum number of items to return
-| sort       | Select| Change the default result set ordering.
 
 ## Dailymotion.getChannelUsers
 List of the top users of this channel.

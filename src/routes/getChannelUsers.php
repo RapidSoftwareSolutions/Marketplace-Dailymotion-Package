@@ -12,8 +12,8 @@ $app->post('/api/Dailymotion/getChannelUsers', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken'];
-    $optionalParams = ['channelId'=> 'channelId','fields'=>'fields','page'=>'page','limit'=>'limit'];
+    $requiredParams = ['channelId'=> 'channelId','accessToken'=>'accessToken'];
+    $optionalParams = ['fields'=>'fields','page'=>'page','limit'=>'limit'];
     $bodyParams = [
        'query' => ['fields','page','limit']
     ];
@@ -24,7 +24,7 @@ $app->post('/api/Dailymotion/getChannelUsers', function ($request, $response) {
     $data['fields'] = \Models\Params::toString($data['fields'], ','); 
 
     $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
-    $query_str = "https://api.dailymotion.com/channel/{$data['channelId']}";
+    $query_str = "https://api.dailymotion.com/channel/{$data['channelId']}/users";
 
     
 

@@ -13,9 +13,9 @@ $app->post('/api/Dailymotion/listRelatedVideos', function ($request, $response) 
     }
 
     $requiredParams = ['accessToken'=>'accessToken','videoId'=>'videoId'];
-    $optionalParams = ['context'=>'context','deviceFilter'=>'device_filter','familyFilter'=>'family_filter','localization'=>'localization','sslAssets'=>'ssl_assets','thumbnailRatio'=>'thumbnail_ratio','fields'=>'fields','sort'=>'sort','page'=>'page','limit'=>'limit'];
+    $optionalParams = ['context'=>'context','deviceFilter'=>'device_filter','familyFilter'=>'family_filter','localization'=>'localization','sslAssets'=>'ssl_assets','thumbnailRatio'=>'thumbnail_ratio','fields'=>'fields','page'=>'page','limit'=>'limit'];
     $bodyParams = [
-       'query' => ['context','device_filter','family_filter','localization','ssl_assets','thumbnail_ratio','limit','page','fields','sort']
+       'query' => ['context','device_filter','family_filter','localization','ssl_assets','thumbnail_ratio','limit','page','fields']
     ];
 
     $data = \Models\Params::createParams($requiredParams, $optionalParams, $post_data['args']);

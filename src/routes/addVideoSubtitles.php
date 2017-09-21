@@ -12,8 +12,8 @@ $app->post('/api/Dailymotion/addVideoSubtitles', function ($request, $response) 
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken','videoId'=>'videoId','url'=>'url'];
-    $optionalParams = ['language'=>'language','format'=>'format'];
+    $requiredParams = ['accessToken'=>'accessToken','videoId'=>'videoId','url'=>'url', 'language'=>'language','format'=>'format'];
+    $optionalParams = [];
     $bodyParams = [
        'form_params' => ['language','format','url']
     ];

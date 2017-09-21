@@ -12,8 +12,8 @@ $app->post('/api/Dailymotion/getSingleChannel', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken' => 'accessToken'];
-    $optionalParams = ['channelId'=> 'channelId','fields' => 'fields', 'page' => 'page', 'limit' => 'limit', 'sort' => 'sort'];
+    $requiredParams = ['channelId'=> 'channelId','accessToken' => 'accessToken'];
+    $optionalParams = ['fields' => 'fields', 'page' => 'page', 'limit' => 'limit', 'sort' => 'sort'];
     $bodyParams = [
         'query' => ['fields', 'page', 'limit', 'sort']
     ];
