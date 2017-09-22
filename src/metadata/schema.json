@@ -1858,7 +1858,7 @@
           "name": "url",
           "type": "String",
           "info": "URL of this video on Dailymotion. Writing this parameter defines where to download the video source.",
-          "required": true
+          "required": false
         },
         {
           "name": "fields",

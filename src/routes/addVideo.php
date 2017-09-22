@@ -4,7 +4,7 @@ $app->post('/api/Dailymotion/addVideo', function ($request, $response) {
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken','url']);
+    $validateRes = $checkRequest->validate($request, ['accessToken']);
 
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
@@ -12,8 +12,8 @@ $app->post('/api/Dailymotion/addVideo', function ($request, $response) {
         $post_data = $validateRes;
     }
 
-    $requiredParams = ['accessToken'=>'accessToken','url'=>'url'];
-    $optionalParams = ['fields'=>'fields','allowEmbed'=>'allow_embed','allowedInPlaylists'=>'allowed_in_playlists','channel'=>'channel','country'=>'country','customClassification'=>'custom_classification','description'=>'description','endTime'=>'end_time','expiryDate'=>'expiry_date','expiryDateDeletion'=>'expiry_date_deletion','explicit'=>'explicit','genres'=>'genres','geoblocking'=>'geoblocking','geoloc'=>'geoloc','language'=>'language','mode'=>'mode','moods'=>'moods','password'=>'password','playerNextVideo'=>'player_next_video','private'=>'private','publishDate'=>'publish_date','published'=>'published','recordStatus'=>'record_status','rentalPrice'=>'rental_price','soundtrackPopularity'=>'soundtrack_popularity','startTime'=>'start_time','tags'=>'tags','thumbnailUrl'=>'thumbnail_url','title'=>'title'];
+    $requiredParams = ['accessToken'=>'accessToken'];
+    $optionalParams = ['fields'=>'fields','url'=>'url','allowEmbed'=>'allow_embed','allowedInPlaylists'=>'allowed_in_playlists','channel'=>'channel','country'=>'country','customClassification'=>'custom_classification','description'=>'description','endTime'=>'end_time','expiryDate'=>'expiry_date','expiryDateDeletion'=>'expiry_date_deletion','explicit'=>'explicit','genres'=>'genres','geoblocking'=>'geoblocking','geoloc'=>'geoloc','language'=>'language','mode'=>'mode','moods'=>'moods','password'=>'password','playerNextVideo'=>'player_next_video','private'=>'private','publishDate'=>'publish_date','published'=>'published','recordStatus'=>'record_status','rentalPrice'=>'rental_price','soundtrackPopularity'=>'soundtrack_popularity','startTime'=>'start_time','tags'=>'tags','thumbnailUrl'=>'thumbnail_url','title'=>'title'];
     $bodyParams = [
        'form_params' => ['title','thumbnail_url','tags','start_time','soundtrack_popularity','rental_price','record_status','published','publish_date','private','player_next_video','password','moods','mode','language','geoloc','geoblocking','genres','explicit','expiry_date_deletion','expiry_date','end_time','description','custom_classification','country','channel','allowed_in_playlists','allow_embed','url','fields']
     ];
@@ -34,11 +34,11 @@ $app->post('/api/Dailymotion/addVideo', function ($request, $response) {
     $client = $this->httpClient;     $data['userId'] = isset($data['userId']) ? $data['userId'] : 'me';
     $query_str = "https://api.dailymotion.com/videos";
 
-    
+
 
     $requestParams = \Models\Params::createRequestBody($data, $bodyParams);
     $requestParams['headers'] = ["Authorization"=>"Bearer {$data['accessToken']}"];
-     
+
 
     try {
         $resp = $client->post($query_str, $requestParams);
