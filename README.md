@@ -6,7 +6,7 @@ Dailymotion is one of the biggest video platforms in the world, and as such, we 
 * Credentials: apiKey, apiSecret
 
 ## How to get credentials: 
-0. Browse to [Dailymotion](www.dailymotion.com)
+0. Browse to [Dailymotion](http://www.dailymotion.com)
 1. Register or log in
 2. Create you application to get apiKey and apiSecret at [ApiKeys page](http://www.dailymotion.com/settings/developer)
 
