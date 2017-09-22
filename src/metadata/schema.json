@@ -19,10 +19,10 @@
     ]
   },
   "steps": [
-    "Browse to www.dailymotion.com",
+    "Browse to http://www.dailymotion.com",
     "Register or log in",
     "Create you application to get apiKey and apiSecret at http://www.dailymotion.com/settings/developer",
-    "Direct user to https://www.dailymotion.com/oauth/authorize?response_type=code&client_id=<API_KEY>&redirect_uri=<REDIRECT_URI>",
+    "Direct user to https://www.dailymotion.com/oauth/authorize?response_type=code&client_id=API_KEY&redirect_uri=REDIRECT_URI",
     "Use getAccessToken method of the package"
   ],
   "basicUrl": "https:\/\/api.dailymotion.com\/",
